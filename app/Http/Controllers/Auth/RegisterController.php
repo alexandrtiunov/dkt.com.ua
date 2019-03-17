@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Company;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +50,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+//           Данные пользователя
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+//           Данные компании
+//            'comp_name' => ['required', 'string', 'min:8', 'confirmed'],
+//            'adress_u' => ['required', 'string', 'min:8', 'confirmed'],
+//            'adress_f' => ['required', 'string', 'min:8', 'confirmed'],
+//            'city' => ['required', 'string', 'min:8', 'confirmed'],
+//            'zip' => ['required', 'string', 'min:8', 'confirmed'],
+//            'country' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -63,10 +74,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+                    'first_name' => $data['first_name'],
+                    'last_name' => $data['last_name'],
+                    'phone' => $data['phone'],
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                ]);
     }
+
+//    protected function createCompany(array $data){
+//
+//        $company = [
+//            'comp_name' => $data['comp_name'],
+//            'adress_u' => $data['adress_u'],
+//            'adress_f' => $data['adress_f'],
+//            'city' => $data['city'],
+//            'zip' => $data['zip'],
+//            'country' => $data['country'],
+//        ];
+//
+//        $company['user_id'] = 1;
+//
+//        if($company){
+//            Company::create($company);
+//        }
+//        return true;
+//    }
 }

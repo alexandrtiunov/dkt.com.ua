@@ -1,0 +1,14 @@
+.info{
+    width: 75%;
+    margin-left: 13%;
+    margin-top: 2%;
+    margin-bottom: -7%;
+}
+
+.alert.alert-info,.alert.alert-success{
+    text-align: center;
+}
+
+.alert.alert-info,.alert.alert-success{
+    display: none;
+}

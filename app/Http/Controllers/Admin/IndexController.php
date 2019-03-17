@@ -32,5 +32,9 @@ class IndexController extends Controller
         return view('admin.spare_parts');
     }
 
+    public function register(){
+        return view('admin.register');
+    }
+
 
 }

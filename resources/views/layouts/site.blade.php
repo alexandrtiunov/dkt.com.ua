@@ -60,7 +60,7 @@
 
                             <div class="header-text-container pull-right">
                                 <p class="header-text">Добро пожаловать!</p>
-                                <p class="header-link"><a href="{{action('Admin/IndexController@index')}}">Войти</a>&nbsp;или&nbsp;<a href="register-account.phtml">Зарегистрироваться</a></p>
+                                <p class="header-link"><a href="{{route('login')}}">Войти</a>&nbsp;или&nbsp;<a href="{{route('register')}}">Зарегистрироваться</a></p>
                             </div><!-- End .pull-right -->
                         </div><!-- End .header-top-right -->
                     </div><!-- End .col-md-12 -->

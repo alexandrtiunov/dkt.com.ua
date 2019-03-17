@@ -47,6 +47,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--begin::Page Vendors Styles -->
     <link href="{{URL::to('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet" type="text/css" />
 
+
+    <link href="{{URL::to('css/admin/main.css')}}" rel="stylesheet" type="text/css" />
+
     <!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
 
     <!--end::Page Vendors Styles -->
@@ -181,8 +184,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 -->
                                                     </div>
                                                     <div class="m-card-user__details">
-                                                        <span class="m-card-user__name m--font-weight-500">Mark Andre</span>
-                                                        <a href="" class="m-card-user__email m--font-weight-300 m-link">mark.andre@gmail.com</a>
+                                                        <span class="m-card-user__name m--font-weight-500">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
+                                                        <a href="" class="m-card-user__email m--font-weight-300 m-link">{{ Auth::user()->email }}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,19 +196,28 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <span class="m-nav__section-text">Section</span>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a href="profile.phtml" class="m-nav__link">
+                                                            <a href="{{action('Admin\ProfileController@profile', Auth::user()->id)}}" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                                 <span class="m-nav__link-title">
 																			<span class="m-nav__link-wrap">
-																				<span class="m-nav__link-text">My Profile</span>
-																				<span class="m-nav__link-badge"><span class="m-badge m-badge--success">2</span></span>
+																				<span class="m-nav__link-text">Мой профиль</span>
+																				<span class="m-nav__link-badge">
+                                                                                    {{--<span class="m-badge m-badge--success">2</span>--}}
+                                                                                </span>
 																			</span>
 																		</span>
                                                             </a>
                                                         </li>
 
                                                         <li class="m-nav__item">
-                                                            <a href="snippets/pages/user/login-1.html" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
+
+                                                            <a href="{{ route('logout') }}" class="btn m-btn--pill
+                                                            btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder"
+                                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                                Выйти</a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -355,6 +367,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{URL::to('assets/app/js/dashboard.js')}}" type="text/javascript"></script>
 
     <script src="{{URL::to('assets/app/js/my-script.js')}}" type="text/javascript"></script>
+
+    <script src="{{URL::to('js/admin/main.js')}}" type="text/javascript"></script>
 
     <!--end::Page Scripts -->
 </div>
