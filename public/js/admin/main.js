@@ -66,10 +66,40 @@ $(document).ready(function () {
                         // data: data,
                         success: function (response) {
                             var new_blog = $(response).find('#m_table_1').html();
-                            console.log(new_blog);
                             $('#m_table_1').html(new_blog);
-                        },
-                    })
+                        }
+                    });
+                });
+            }
+        });
+
+    });
+
+    //обновление категории
+    $('.category-upd').click(function (e) {
+        e.preventDefault();
+
+        var form = $('.upd-category_form');
+        var data = form.serialize();
+
+        $.ajax({
+            url: form.attr('action'),
+            method: 'POST',
+            data: data,
+            success: function (response) {
+                $('#edit').modal('toggle');
+                $('.category_form')[0].reset();
+
+                var url = $('.reset-category-button').attr('data-toggle');
+
+                $.ajax({
+                    url: url,
+                    method: 'get',
+                    // data: data,
+                    success: function (response) {
+                        var new_blog = $(response).find('#m_table_1').html();
+                        $('#m_table_1').html(new_blog);
+                    }
                 });
             }
         });

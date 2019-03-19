@@ -23,7 +23,26 @@ class CategoryController extends Controller
                 "name" => $category['name'],
             ]);
         }
+    }
 
+    public function editCategory(){
 
+    }
+
+    public function updateCategory(Request $request, $id){
+
+        $category = Category::find($id);
+
+        $this->validate(request(), [
+            "short_name" => "required",
+            "name" => "required",
+        ]);
+
+        $category->short_name = $request->get('short_name');
+        $category->name = $request->get('name');
+
+        $category->save();
+
+        return response()->json();
     }
 }

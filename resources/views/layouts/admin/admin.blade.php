@@ -568,6 +568,47 @@ License: You must have a valid license purchased only from themeforest(the above
 </div>
 <!-- конец модального окна -->
 
+{{--Модальное окно обновления категории--}}
+<div class="modal fade show" id="edit{{$category['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 17px;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Обновить категорию: {{$category->name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="alert alert-info">
+                <p>Данные обновлены</p>
+            </div>
+
+            <form method="post" action="{{action('Admin\CategoryController@updateCategory', $category['id'])}}" class="upd-category_form">
+                {{csrf_field()}}
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="short_name" class="form-control-label">Имя URL:</label>
+                        <input type="text" name="short_name" class="form-control" value="{{$category->short_name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="form-control-label">Название:</label>
+                        <input type="text" class="form-control" name="name" value="{{$category->name}}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="submit" class="category-upd btn btn-primary" data-toggle="{{action('Admin\IndexController@categories')}}">
+                        Обновить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{--конец модального окна--}}
+
 <!-- модальное окно категории (Запчасти к ... ) -->
 <div class="modal fade show" id="sparePartsTo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 17px;">
     <div class="modal-dialog modal-lg" role="document">
@@ -670,6 +711,18 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
 </div>
 <!-- конец окна -->
+<div class="info">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div><br />
+    @endif
 
+
+</div>
 <!-- end::Body -->
 </html>

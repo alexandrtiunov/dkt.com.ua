@@ -51,15 +51,18 @@
                             <td>{{$category->name}}</td>
 
                             <td nowrap="">
-                        						<span class="dropdown">
-                            						<a href="#" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="true">
-                              						<i class="la la-ellipsis-h"></i>
-                            						</a>
-						                            <div class="dropdown-menu dropdown-menu-right">
-						                                <a class="dropdown-item" href="#"><i class="la la-edit"></i> Редактировать</a>
-						                            </div>
-                        						</span>
-                                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="View">
+                                <span class="dropdown">
+                                    <a href="#" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="true">
+                                        <i class="la la-ellipsis-h"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#"><i class="la la-edit"></i> Редактировать</a>
+                                    </div>
+                                </span>
+
+                                <a href="{{action('Admin\CategoryController@editCategory', $category['id'])}}"
+                                   class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="View"
+                                   data-toggle="modal" data-target="#edit{{$category['id']}}">
                                     <i class="la la-edit"></i>
                                 </a>
                             </td>

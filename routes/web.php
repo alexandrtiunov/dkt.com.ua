@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
 
     Route::get('/categories', 'Admin\IndexController@categories');
     Route::post('/categories', 'Admin\CategoryController@addCategory');
+    Route::get('/category/{id}', 'Admin\CategoryController@editCategory');
+    Route::post('/category/{id}', 'Admin\CategoryController@updateCategory');
 
     Route::get('/spare_parts', 'Admin\IndexController@spareParts');
 
