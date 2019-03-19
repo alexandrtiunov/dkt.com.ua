@@ -102,73 +102,73 @@
 
                             </div><!-- End .col-md-6 -->
 
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <fieldset>
-                                    <h2 class="sub-title">Адрес</h2>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="input-icon input-icon-company"></span><span class="input-text">Компания&#42;</span></span>
-                                        <input type="text" name="comp_name" required class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Компания">
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div><!-- End .input-group -->
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="input-icon input-icon-address"></span><span class="input-text">Адрес&#42;</span></span>
-                                        <input type="text" name="adress_u" class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Юридический адрес">
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div><!-- End .input-group -->
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="input-icon input-icon-address"></span><span class="input-text">Адрес&#42;</span></span>
-                                        <input type="text" name="adress_f" required  class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Фактический адрес">
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div><!-- End .input-group -->
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="input-icon input-icon-city"></span><span class="input-text">Город&#42;</span></span>
-                                        <input type="text" name="city" required class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Город">
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div><!-- End .input-group -->
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="input-icon input-icon-postcode"></span><span class="input-text">Индекс&#42;</span></span>
-                                        <input type="text" name="zip" required class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Индекс">
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div><!-- End .input-group -->
+                            {{--<div class="col-md-6 col-sm-6 col-xs-12">--}}
+                                {{--<fieldset>--}}
+                                    {{--<h2 class="sub-title">Адрес</h2>--}}
+                                    {{--<div class="input-group">--}}
+                                        {{--<span class="input-group-addon"><span class="input-icon input-icon-company"></span><span class="input-text">Компания&#42;</span></span>--}}
+                                        {{--<input type="text" name="comp_name" required class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Компания">--}}
+                                        {{--@if ($errors->has('name'))--}}
+                                            {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                    {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div><!-- End .input-group -->--}}
+                                    {{--<div class="input-group">--}}
+                                        {{--<span class="input-group-addon"><span class="input-icon input-icon-address"></span><span class="input-text">Адрес&#42;</span></span>--}}
+                                        {{--<input type="text" name="adress_u" class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Юридический адрес">--}}
+                                        {{--@if ($errors->has('name'))--}}
+                                            {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                    {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div><!-- End .input-group -->--}}
+                                    {{--<div class="input-group">--}}
+                                        {{--<span class="input-group-addon"><span class="input-icon input-icon-address"></span><span class="input-text">Адрес&#42;</span></span>--}}
+                                        {{--<input type="text" name="adress_f" required  class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Фактический адрес">--}}
+                                        {{--@if ($errors->has('name'))--}}
+                                            {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                    {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div><!-- End .input-group -->--}}
+                                    {{--<div class="input-group">--}}
+                                        {{--<span class="input-group-addon"><span class="input-icon input-icon-city"></span><span class="input-text">Город&#42;</span></span>--}}
+                                        {{--<input type="text" name="city" required class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Город">--}}
+                                        {{--@if ($errors->has('name'))--}}
+                                            {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                    {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div><!-- End .input-group -->--}}
+                                    {{--<div class="input-group">--}}
+                                        {{--<span class="input-group-addon"><span class="input-icon input-icon-postcode"></span><span class="input-text">Индекс&#42;</span></span>--}}
+                                        {{--<input type="text" name="zip" required class="form-control input-lg {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Индекс">--}}
+                                        {{--@if ($errors->has('name'))--}}
+                                            {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                    {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div><!-- End .input-group -->--}}
 
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><span class="input-icon input-icon-country"></span><span class="input-text">Страна*</span></span>
-                                        <div class="large-selectbox clearfix">
-                                            <select id="country" name="country" class="selectbox {{ $errors->has('name') ? ' is-invalid' : '' }}">
-                                                <option  value="Ukraine">Украина</option>
-                                                <option  value="Belorussia">Беларусь</option>
-                                                <option  value="Russia">Россия</option>
-                                            </select>
-                                        </div><!-- End .large-selectbox-->
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div><!-- End .input-group -->
+                                    {{--<div class="input-group">--}}
+                                        {{--<span class="input-group-addon"><span class="input-icon input-icon-country"></span><span class="input-text">Страна*</span></span>--}}
+                                        {{--<div class="large-selectbox clearfix">--}}
+                                            {{--<select id="country" name="country" class="selectbox {{ $errors->has('name') ? ' is-invalid' : '' }}">--}}
+                                                {{--<option  value="Ukraine">Украина</option>--}}
+                                                {{--<option  value="Belorussia">Беларусь</option>--}}
+                                                {{--<option  value="Russia">Россия</option>--}}
+                                            {{--</select>--}}
+                                        {{--</div><!-- End .large-selectbox-->--}}
+                                        {{--@if ($errors->has('name'))--}}
+                                            {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $errors->first('name') }}</strong>--}}
+                                    {{--</span>--}}
+                                        {{--@endif--}}
+                                    {{--</div><!-- End .input-group -->--}}
 
-                                </fieldset>
-                            </div><!-- End .col-md-6 -->
+                                {{--</fieldset>--}}
+                            {{--</div><!-- End .col-md-6 -->--}}
 
                         </div><!-- End .row -->
 

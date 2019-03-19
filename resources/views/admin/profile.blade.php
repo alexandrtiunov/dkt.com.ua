@@ -163,7 +163,7 @@
                                             <div class="col-2">
                                             </div>
                                             <div class="col-7">
-                                                <button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">Сохранить</button>&nbsp;&nbsp;
+                                                <button type="submit" class="update-profile btn btn-accent m-btn m-btn--air m-btn--custom">Сохранить</button>&nbsp;&nbsp;
                                                 <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Отменить</button>
                                             </div>
                                         </div>

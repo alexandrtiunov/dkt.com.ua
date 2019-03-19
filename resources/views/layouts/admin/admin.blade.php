@@ -453,6 +453,10 @@ License: You must have a valid license purchased only from themeforest(the above
                             <input type="text" class="form-control" name="name">
                         </div>
                         <div class="form-group">
+                            <label for="price" class="form-control-label">Цена:</label>
+                            <input type="text" class="form-control" name="price">
+                        </div>
+                        <div class="form-group">
                             <label for="cateory" class="form-control-label">Категория:</label>
                             <select class="form-control" size="1" name="cateory">
                                 <option selected value>Насосы</option>
@@ -513,32 +517,50 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="modal fade show" id="categories" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none; padding-right: 17px;">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
+
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Добавление новой категории</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form method="post" action="{{action('Admin\CategoryController@addCategory')}}">
+
+            <div class="info">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div><br />
+                @endif
+                <div class="alert alert-info">
+                    <p>Данные обновлены</p>
+                </div>
+
+                <div class="alert alert-success">
+                    <p>Данные добавлены. Добавить ещё одну категорию? <button class="new-category-button btn btn-primary">Да</button>
+                        <button class="reset-category-button btn btn-primary" data-toggle="{{action('Admin\IndexController@categories')}}">Нет</button></p>
+                </div><br />
+            </div>
+
+            <form method="post" action="{{action('Admin\CategoryController@addCategory')}}" class="category_form">
                 {{csrf_field()}}
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="url" class="form-control-label">Имя URL:</label>
-                        <input type="text" name="url" class="form-control">
+                        <label for="short_name" class="form-control-label">Имя URL:</label>
+                        <input type="text" name="short_name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-control-label">Название:</label>
                         <input type="text" class="form-control" name="name">
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="message-text" class="form-control-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div> -->
                 </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                <button type="submit" class="btn btn-primary">Добавить</button>
+                <button type="submit" class="category-add btn btn-primary">Добавить</button>
             </div>
             </form>
         </div>

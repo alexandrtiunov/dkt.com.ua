@@ -39,38 +39,17 @@
                             <th>Id</th>
                             <th>Имя URL</th>
                             <th>Название</th>
-                            <!-- <th>Категория</th>
-                            <th>Запчасть к</th>
-                            <th>Наличие</th>
-                            <th>Количество</th>
-                            <th>Ед. измерения</th>
-                            <th>Цена</th>
-                            <th>Поставшик</th>
-                            <th>Статус</th> -->
-                            <!-- <th>Статус заказа</th> -->
-                            <!-- <th>Type</th> -->
+
                             <th>Actions</th>
                         </tr>
                         </thead>
+                        @foreach($categories as $category)
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Kolca</td>
-                            <td>Кольца</td>
-                            <!-- <td>Насосы</td>
-                            <td>Дизелю 211Д3</td>
-                            <td>
-                                <span class="m-badge  m-badge--success m-badge--wide">в наличии</span>
-                            </td> -->
-                            <!-- <td>в наличии</td> -->
-                            <!-- <td>5</td>
-                            <td>шт.</td>
-                            <td>15500</td>
-                            <td>ДЕКО-ТРАНС</td>
-                            <td>1</td> -->
-                            <!-- <td>
-                                <span class="m-badge m-badge--primary m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-primary">Retail</span>
-                            </td> -->
+                            <td>{{$category->id}}</td>
+                            <td>{{$category->short_name}}</td>
+                            <td>{{$category->name}}</td>
+
                             <td nowrap="">
                         						<span class="dropdown">
                             						<a href="#" class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown" aria-expanded="true">
@@ -86,6 +65,7 @@
                             </td>
                         </tr>
                         </tbody>
+                            @endforeach
                     </table>
                 </div>
             </div>

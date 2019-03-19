@@ -14,10 +14,13 @@ class ProfileController extends Controller
         $user = User::find($id);
         $company = Company::where('user_id', $id)->first();
 
-        return view('admin.profile', [
-            'user' => $user,
-            'company' => $company,
-        ]);
+        if($user->user_status_id == 1 || $user->user_status_id == 2){
+            return view('admin.profile', [
+                'user' => $user,
+                'company' => $company,
+            ]);
+        }
+        return redirect('profile/' . $user->id);
     }
 
     public function updateUser(Request $request, $id){
@@ -39,7 +42,7 @@ class ProfileController extends Controller
         $user->save();
 
 //        return redirect('admin/profile/' . $id)->with('update', 'Данные обновлены');
-        return response()->json()->with('update', 'Данные обновлены');
+        return response()->json();
     }
 
     public function createCompany(Request $request, $userId){

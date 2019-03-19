@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
 
             $table->string('short_name');
             $table->string('name');
+            $table->integer('price');
 
             $table->unsignedBigInteger('pr_status_id');
             $table->foreign('pr_status_id')->references('id')->on('products_status');

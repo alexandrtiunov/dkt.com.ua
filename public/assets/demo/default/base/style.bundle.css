@@ -8234,7 +8234,8 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
 }
 
 .ml-auto, .mx-auto {
-    margin-left: auto !important
+    margin-left: auto !important;
+    margin-top: 2%;
 }
 
 @media (min-width: 576px) {
@@ -49010,9 +49011,9 @@ body.m-content--skin-light2 {
     background-color: #fff
 }
 
-.m-aside-left.m-aside-left-offcanvas-default .m-aside-left {
-    top: !important
-}
+/*.m-aside-left.m-aside-left-offcanvas-default .m-aside-left {*/
+    /*top: !important*/
+/*}*/
 
 .m-aside-left.m-aside-left-offcanvas-default .m-body {
     padding-left: 0 !important

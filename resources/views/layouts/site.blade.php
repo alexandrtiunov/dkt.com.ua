@@ -9,6 +9,7 @@
     <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    @section('link')
     <link href='//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic%7CPT+Gudea:400,700,400italic%7CPT+Oswald:400,700,300' rel='stylesheet' id="googlefont">
 
     <link rel="stylesheet" href="{{URL::to('css/bootstrap.min.css')}}">
@@ -24,13 +25,16 @@
     <link rel="icon" type="image/png" href="images/icons/icon.png">
     <link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-icon-72x72.png">
-
+    @show
     <!-- Google map javascript api v3 -->
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD45Nu6JYgh1oKG5G9ut7Nr4QW48gx-6ug&amp;sensor=false"></script>
 
     <!--- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <script src="{{URL::to('assets/vendors/base/vendors.bundle.js')}}" type="text/javascript"></script>
+    <script src="{{URL::to('js/admin/main.js')}}" type="text/javascript"></script>
 
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -49,19 +53,30 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="header-top-left">
+                            @if(isset(Auth::user()->id))
                             <ul id="top-links" class="clearfix">
                                 <!-- <li><a href="#" title="My Wishlist"><span class="top-icon top-icon-pencil"></span><span class="hide-for-xs">My Wishlist</span></a></li> -->
-                                <li><a href="#" title="My Account"><span class="top-icon top-icon-user"></span><span class="hide-for-xs">Мой кабинет</span></a></li>
+                                <li><a href="{{action('ProfileController@profile', Auth::user()->id)}}" title="My Account"><span class="top-icon top-icon-user"></span><span class="hide-for-xs">Мой кабинет</span></a></li>
                                 <li><a href="cart.phtml" title="My Cart"><span class="top-icon top-icon-cart"></span><span class="hide-for-xs">Корзина</span></a></li>
                                 <!-- <li><a href="checkout.html" title="Checkout"><span class="top-icon top-icon-check"></span><span class="hide-for-xs">Checkout</span></a></li> -->
                             </ul>
+                            @endif
                         </div><!-- End .header-top-left -->
                         <div class="header-top-right">
 
+                            @guest
                             <div class="header-text-container pull-right">
                                 <p class="header-text">Добро пожаловать!</p>
-                                <p class="header-link"><a href="{{route('login')}}">Войти</a>&nbsp;или&nbsp;<a href="{{route('register')}}">Зарегистрироваться</a></p>
+                                <p class="header-link"><a href="{{action('Admin\IndexController@index')}}">Войти</a>&nbsp;или&nbsp;<a href="{{route('register')}}">Зарегистрироваться</a></p>
                             </div><!-- End .pull-right -->
+                            @else
+                                {{--<li class="nav-item dropdown">--}}
+                                Здравствуйте
+                                    <a>
+                                        {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                                    </a>
+                                {{--</li>--}}
+                                @endguest
                         </div><!-- End .header-top-right -->
                     </div><!-- End .col-md-12 -->
                 </div><!-- End .row -->

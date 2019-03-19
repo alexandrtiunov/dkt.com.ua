@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/profile/{id}', 'ProfileController@profile');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
     Route::get('/', 'Admin\IndexController@index');
     Route::get('/products', 'Admin\IndexController@products');
@@ -33,10 +35,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
 
 });
 
-//Route::get('/admin', 'Admin\IndexController@index');
 
 Auth::routes();
-//Route::get('/register', 'Admin\Auth\RegisterController@index');
-//Route::post('/register', 'Admin\Auth\RegisterController@register');
 
 Route::get('/home', 'HomeController@index')->name('home');
