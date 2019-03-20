@@ -43,6 +43,8 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return response()->json();
+        return response()->json([
+            "id" => $category['id'],
+        ]);
     }
 }

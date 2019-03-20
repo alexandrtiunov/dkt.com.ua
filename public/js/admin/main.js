@@ -22,7 +22,7 @@ $(document).ready(function () {
                 $('.alert.alert-info').css('display', 'block');
                 $('.nav-item.m-tabs__item').click(function () {
                     $('.alert.alert-info').css('display', 'none');
-                })
+                });
             }
         });
     });
@@ -79,7 +79,9 @@ $(document).ready(function () {
     $('.category-upd').click(function (e) {
         e.preventDefault();
 
-        var form = $('.upd-category_form');
+        var form = $('#upd-category_form');
+        var className = form.prop("classList");
+        form = $('.' + className[0] + '.' + className[1]);
         var data = form.serialize();
 
         $.ajax({
@@ -87,10 +89,11 @@ $(document).ready(function () {
             method: 'POST',
             data: data,
             success: function (response) {
-                $('#edit').modal('toggle');
-                $('.category_form')[0].reset();
 
-                var url = $('.reset-category-button').attr('data-toggle');
+                $('#edit' + response['id']).modal('toggle');
+            },
+            complete: function () {
+                var url = $(this).attr('data-toggle');
 
                 $.ajax({
                     url: url,
@@ -99,11 +102,17 @@ $(document).ready(function () {
                     success: function (response) {
                         var new_blog = $(response).find('#m_table_1').html();
                         $('#m_table_1').html(new_blog);
+                    },
+                    complete:function () {
+                        $('.alert.alert-info').css('display', 'block');
+                        $(document).click(function () {
+                            $('.alert.alert-info').css('display', 'none');
+                            $(this)[0].reset();
+                        });
                     }
                 });
             }
         });
-
     });
 
 }); //end ready
